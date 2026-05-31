@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.pyc
+chat4.py
+run_model.py
+demo_claude_on_foundry.py
+requirements.txt
+CLAUDE_CODE_FOUNDRY_SETUP.md
+claude-code-foundry-fix.md
+.env*
+!.env.example
+_md_to_html.py
+/settings.png
