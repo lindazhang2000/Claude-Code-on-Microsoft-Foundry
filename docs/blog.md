@@ -97,7 +97,7 @@ az cognitiveservices account deployment create `
 
 ✍️ *Figure 1: Foundry portal “Models + endpoints” showing the three Claude deployments.*
 
-![Three Claude model deployments in the Foundry portal](images/Three%20Claude%20deployments.png)
+![Three Claude model deployments in the Foundry portal](../images/Three%20Claude%20deployments.png)
 
 ---
 
@@ -206,7 +206,7 @@ Model:                        Default (claude-sonnet-4-6)
 
 ✍️ *Figure 2: `/status` output confirming `API provider: Microsoft Foundry`.*
 
-![Claude CLI /status panel showing Microsoft Foundry as the API provider](images/CLI%20Status.png)
+![Claude CLI /status panel showing Microsoft Foundry as the API provider](../images/CLI%20Status.png)
 
 If you instead see "Anthropic" or it prompts for an Anthropic login, `CLAUDE_CODE_USE_FOUNDRY` isn't being inherited — see troubleshooting below.
 
@@ -240,7 +240,7 @@ If VS Code was already running, **fully quit it** (not just close the window) an
 
 ✍️ *Figure 3: `settings.json` with the `claudeCode.environmentVariables` array form.*
 
-![VS Code settings.json with claudeCode.environmentVariables](images/settings.png)
+![VS Code settings.json with claudeCode.environmentVariables](../images/settings.png)
 
 ---
 
@@ -256,7 +256,7 @@ You should get a response within a few seconds, and the panel should indicate it
 
 ✍️ *Figure 4: Claude Code panel in VS Code responding through Microsoft Foundry.*
 
-![Claude Code VS Code panel responding with Microsoft Foundry routing](images/Claude%20Code%20VS%20Code%20panel.png)
+![Claude Code VS Code panel responding with Microsoft Foundry routing](../images/Claude%20Code%20VS%20Code%20panel.png)
 
 ---
 
@@ -337,3 +337,4 @@ Use BASE_URL
 - Custom DNS / VNet routing
 
 Never set both.
+
