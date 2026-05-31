@@ -5,21 +5,21 @@ The mental model. Every failure maps to one arrow on this diagram.
 ```mermaid
 flowchart LR
     subgraph DEV["Developer machine"]
-        VSCODE["VS Code + Claude Code extension"]
-        CLI["claude CLI"]
+        VSCODE["VS Code + Claude Code extension"]:::dev
+        CLI["claude CLI"]:::dev
         ENV["Env vars<br/>CLAUDE_CODE_USE_FOUNDRY=1<br/>ANTHROPIC_FOUNDRY_RESOURCE"]:::gotcha
         AZL["az login session<br/>(Entra ID bearer)"]:::gotcha
     end
 
     subgraph FOUNDRY["Microsoft Foundry resource"]
         RBAC["RBAC<br/>Cognitive Services User<br/>+ Foundry User"]:::gotcha
-        ENDPOINT["Custom subdomain endpoint<br/>(region matters)"]
+        ENDPOINT["Custom subdomain endpoint<br/>(region matters)"]:::foundry
     end
 
     subgraph MODELS["Model deployments"]
-        SONNET["claude-sonnet-4-6<br/>primary"]
-        HAIKU["claude-haiku-4-5<br/>fast"]
-        OPUS["claude-opus-4-6<br/>extended thinking"]
+        SONNET["claude-sonnet-4-6<br/>primary"]:::model
+        HAIKU["claude-haiku-4-5<br/>fast"]:::model
+        OPUS["claude-opus-4-6<br/>extended thinking"]:::model
     end
 
     VSCODE --> ENV
@@ -31,7 +31,13 @@ flowchart LR
     ENDPOINT --> HAIKU
     ENDPOINT --> OPUS
 
-    classDef gotcha fill:#FFF3CD,stroke:#E6B800,color:#222
+    classDef gotcha fill:#FFD43B,stroke:#B8860B,stroke-width:2.5px,color:#1a1a1a,font-weight:bold
+    classDef dev fill:#E3F2FD,stroke:#1976D2,color:#0D47A1
+    classDef foundry fill:#EDE7F6,stroke:#5E35B1,color:#311B92
+    classDef model fill:#E8F5E9,stroke:#2E7D32,color:#1B5E20
+    style DEV fill:#F8FAFC,stroke:#94A3B8,color:#0F172A
+    style FOUNDRY fill:#F5F3FF,stroke:#7C3AED,color:#3B0764
+    style MODELS fill:#F0FDF4,stroke:#16A34A,color:#052E16
 ```
 
 **Yellow boxes = where 90% of customer failures occur.**
