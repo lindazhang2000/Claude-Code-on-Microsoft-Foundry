@@ -22,8 +22,9 @@ Run Anthropic Claude Code against Azure-hosted models via **Microsoft Foundry** 
 **Setup**
 
 - Deploy `claude-sonnet-4-6` (optionally `claude-haiku-4-5` + `claude-opus-4-6`)
-- Assign **BOTH** roles on the Foundry resource:
+- Assign these roles on the Foundry resource:
   - `Cognitive Services User`
+  - `or`
   - `Foundry User`
 - `az login --tenant <tenant>`
 - Launch VS Code via `code .` from the authenticated shell
