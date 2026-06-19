@@ -22,10 +22,13 @@ Run Anthropic Claude Code against Azure-hosted models via **Microsoft Foundry** 
 **Setup**
 
 - Deploy `claude-sonnet-4-6` (optionally `claude-haiku-4-5` + `claude-opus-4-6`)
-- Assign these roles on the Foundry resource:
+- Assign **one of the two** roles on the Foundry resource:
   - `Cognitive Services User`
-  - `or`
   - `Foundry User`
+- Install the Claude Code CLI:
+  - Windows (PowerShell): `irm https://claude.ai/install.ps1 | iex`
+  - macOS / Linux / WSL: `curl -fsSL https://claude.ai/install.sh | sh`
+  - Verify: `claude --version` *(Windows: run `claude` from Git Bash or WSL2 — not `cmd.exe` / PowerShell)*
 - `az login --tenant <tenant>`
 - Launch VS Code via `code .` from the authenticated shell
 
@@ -56,12 +59,17 @@ claude
 ```
 
 ```powershell
-# PowerShell equivalent
+# Windows (PowerShell): set env vars, then launch Git Bash / WSL2 to run `claude`
 az login --tenant <tenant>
 $env:CLAUDE_CODE_USE_FOUNDRY    = "1"
 $env:ANTHROPIC_FOUNDRY_RESOURCE = "<resource>"
+# Spawn a POSIX shell from this session so it inherits the env vars
+& "C:\Program Files\Git\bin\bash.exe" -i   # or: wsl
+# inside Git Bash / WSL:
 claude
 ```
+
+> **Windows note:** The Claude Code CLI requires a POSIX shell. You can set env vars in PowerShell, but `claude` itself must be launched from **Git Bash** or **WSL2** — not `cmd.exe` or PowerShell.
 
 Or use the bundled scripts:
 
